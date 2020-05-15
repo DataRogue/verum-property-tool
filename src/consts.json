@@ -1,0 +1,893 @@
+{
+    "COUNTRIES":[
+        {
+            "name": "Badlands",
+            "imageName": "badlands.jpg",
+            "regions":[
+                {
+                    "name":"White Sands",
+                    "subregions":[
+                        {
+                            "name": "Baghla'tash",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Mirage",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Salegesh",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Voton",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"The Mages Coast",
+                    "subregions":[
+                        {
+                            "name": "Scriven Port",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Kazakala",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"Lesser Scour",
+                    "subregions":[
+                        {
+                            "name": "Uil'ta",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Sandstone",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Bloodwave Bay",
+            "imageName": "badlands.jpg",
+            "regions":[
+                {
+                    "name":"White Sands",
+                    "subregions":[
+                        {
+                            "name": "Baghla'tash",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Mirage",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Salegesh",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Voton",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"The Mages Coast",
+                    "subregions":[
+                        {
+                            "name": "Scriven Port",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Kazakala",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"Lesser Scour",
+                    "subregions":[
+                        {
+                            "name": "Uil'ta",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Sandstone",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Daborak",
+            "imageName": "badlands.jpg",
+            "regions":[
+                {
+                    "name":"White Sands",
+                    "subregions":[
+                        {
+                            "name": "Baghla'tash",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Mirage",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Salegesh",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Voton",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"The Mages Coast",
+                    "subregions":[
+                        {
+                            "name": "Scriven Port",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Kazakala",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"Lesser Scour",
+                    "subregions":[
+                        {
+                            "name": "Uil'ta",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Sandstone",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Dolten",
+            "imageName": "badlands.jpg",
+            "regions":[
+                {
+                    "name":"White Sands",
+                    "subregions":[
+                        {
+                            "name": "Baghla'tash",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Mirage",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Salegesh",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Voton",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"The Mages Coast",
+                    "subregions":[
+                        {
+                            "name": "Scriven Port",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Kazakala",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"Lesser Scour",
+                    "subregions":[
+                        {
+                            "name": "Uil'ta",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Sandstone",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Floating City Of Khao",
+            "imageName": "badlands.jpg",
+            "regions":[
+                {
+                    "name":"White Sands",
+                    "subregions":[
+                        {
+                            "name": "Baghla'tash",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Mirage",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Salegesh",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Voton",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"The Mages Coast",
+                    "subregions":[
+                        {
+                            "name": "Scriven Port",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Kazakala",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"Lesser Scour",
+                    "subregions":[
+                        {
+                            "name": "Uil'ta",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Sandstone",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Khao (Country)",
+            "imageName": "badlands.jpg",
+            "regions":[
+                {
+                    "name":"White Sands",
+                    "subregions":[
+                        {
+                            "name": "Baghla'tash",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Mirage",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Salegesh",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Voton",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"The Mages Coast",
+                    "subregions":[
+                        {
+                            "name": "Scriven Port",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Kazakala",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"Lesser Scour",
+                    "subregions":[
+                        {
+                            "name": "Uil'ta",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Sandstone",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Krazax",
+            "imageName": "badlands.jpg",
+            "regions":[
+                {
+                    "name":"White Sands",
+                    "subregions":[
+                        {
+                            "name": "Baghla'tash",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Mirage",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Salegesh",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Voton",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"The Mages Coast",
+                    "subregions":[
+                        {
+                            "name": "Scriven Port",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Kazakala",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"Lesser Scour",
+                    "subregions":[
+                        {
+                            "name": "Uil'ta",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Sandstone",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Majital",
+            "imageName": "majital.jpg",
+            "regions":[
+                {
+                    "name":"White Sands",
+                    "subregions":[
+                        {
+                            "name": "Baghla'tash",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Mirage",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Salegesh",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Voton",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"The Mages Coast",
+                    "subregions":[
+                        {
+                            "name": "Scriven Port",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Kazakala",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name":"Lesser Scour",
+                    "subregions":[
+                        {
+                            "name": "Uil'ta",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        },
+                        {
+                            "name": "Sandstone",
+                            "dangerLevel": 1,
+                            "landCost": 2,
+                            "buildCost": 1,
+                            "tpValue": 1,
+                            "traits": [
+                                "Efficient Infrastructure", "Docks", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "GRID_SIZES":[
+        {
+            "x":5,
+            "y":5
+        },
+        {
+            "x":8,
+            "y":8
+        },
+        {
+            "x":10,
+            "y":8
+        },
+        {
+            "x":10,
+            "y":10
+        },
+        {
+            "x":15,
+            "y":10
+        },
+        {
+            "x":15,
+            "y":15
+        },
+        {
+            "x":20,
+            "y":20
+        },
+        {
+            "x":30,
+            "y":20
+        },
+        {
+            "x":30,
+            "y":30
+        }
+    ],
+    "TILES":{
+        "BASE_COSTS":{
+            "LAND_COST": 25
+        },
+        "INDOOR":[
+            {
+                "tileDisplayName": "Empty",
+                "color": "white",
+                "baseTpCost": 0,
+                "baseGpCost": 0
+            },
+            {
+                "tileDisplayName": "Cheap",
+                "color": "#4e342e",
+                "baseTpCost": 2,
+                "baseGpCost": 10
+            },
+            {
+                "tileDisplayName": "Generic",
+                "color": "#c62828",
+                "baseTpCost": 8,
+                "baseGpCost": 30
+            },
+            {
+                "tileDisplayName": "Expensive",
+                "color": "#d84315",
+                "baseTpCost": 30,
+                "baseGpCost": 100
+            },
+            {
+                "tileDisplayName": "Very Expensive",
+                "color": "#f9a825",
+                "baseTpCost": 100,
+                "baseGpCost": 300
+            }
+        ],
+        "OUTDOOR": [
+
+        ],
+        "SPECIAL": [
+            
+        ]
+    }
+}

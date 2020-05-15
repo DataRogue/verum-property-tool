@@ -1,0 +1,29 @@
+table{
+    &.block-matrix-table{
+        width: 100%;
+        height: 100%;
+        td{
+            border: black 1px solid;
+        }
+    }
+}
+ul {
+    li {
+        list-style: none;
+        cursor: pointer;
+        &.active{
+            color:#f44336;
+        }
+        &:hover{
+            color:#ef9a9a;
+        }
+    }
+    .color-block{
+        width: 20px;
+        float: right;
+        height: 20px;
+        display: block;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+}
