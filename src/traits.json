@@ -37,7 +37,7 @@
     },
     {
         "name": "Beautiful",
-        "description": "The land either has an amazing view or is in an area valued for its fantastic majestic beauty. The land itself costs double but building blocks grant 50% addition TP. /n /n Can't be select with the Slumtown trait.",
+        "description": "The land either has an amazing view or is in an area valued for its fantastic majestic beauty. The land itself costs double but building blocks grant 50% addition TP. Can't be select with the Slumtown trait.",
         "dangerLevel": { "type": "ADD", "value": 0 },
         "landCost": { "type": "MULT", "value": 2 },
         "buildCost": { "type": "MULT", "value": 1 },

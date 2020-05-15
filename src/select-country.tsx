@@ -78,6 +78,7 @@ export class SelectRegion extends Component<{selectedCountry:string, selectRegio
             "buildCost": 0,
             "tpValue": 0
         };
+
         if(this.props.selectedSubregion !== ""){
             defaultSubregion = regions.flatMap(x=> x.subregions).find(y=>y.name === this.props.selectedSubregion) || defaultSubregion;
         }
@@ -109,7 +110,16 @@ export class SelectRegion extends Component<{selectedCountry:string, selectRegio
     }
 }
 
-export class SelectTraits extends Component<{possibleTraits:Trait[], selectedTraits:Trait[], baseMultiplier:SubregionType, countryName:string, selectTraitCallback:Function}>{
+export class SelectTraits extends Component<{possibleTraits:Trait[], selectedTraits:Trait[], baseMultiplier:SubregionType, countryName:string, selectTraitCallback:Function}, {hoveredSubregion?:Trait}>{
+    constructor(props:any){
+        super(props);
+        this.state = {};
+    }
+    onHover(name:Trait){
+        this.setState({
+            hoveredSubregion:name
+        })
+    }
     render(){
         let multipliers = {
             dangerLevel: this.props.baseMultiplier.dangerLevel,
@@ -124,6 +134,7 @@ export class SelectTraits extends Component<{possibleTraits:Trait[], selectedTra
             multipliers.buildCost = DataStructures.ResolveValueModifier(multipliers.buildCost, x.buildCost);
             multipliers.tpValue = DataStructures.ResolveValueModifier(multipliers.tpValue, x.tpValue);
         });
+        
 
         return (
             <div className="row">
@@ -132,12 +143,19 @@ export class SelectTraits extends Component<{possibleTraits:Trait[], selectedTra
                     <ul>
                     {
                         //To-do, list render all the possible traits
-                        this.props.possibleTraits.map((trait, i) => <li key={i} className={this.props.selectedTraits.find(x=>x.name===trait.name) ? "active" : ""} onClick={(x=>this.props.selectTraitCallback(trait.name))}>{trait.name}</li>)
+                        this.props.possibleTraits.map((trait, i) => <li key={i} onMouseEnter={()=>this.onHover(trait)} className={this.props.selectedTraits.find(x=>x.name===trait.name) ? "active" : ""} onClick={(x=>this.props.selectTraitCallback(trait.name))}>{trait.name}</li>)
                     }
                     </ul>
                 </div>
                 <div className="col">
-                    Base Info
+                    {
+                        this.state.hoveredSubregion ?
+                        <div className="col"> 
+                            <h3>{this.state.hoveredSubregion.name}</h3>
+                            <p>{this.state.hoveredSubregion.description}</p>
+                        </div>
+                        :null
+                    }
                 </div>
             </div>
         )

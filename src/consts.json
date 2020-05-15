@@ -856,31 +856,36 @@
                 "tileDisplayName": "Empty",
                 "color": "white",
                 "baseTpCost": 0,
-                "baseGpCost": 0
+                "baseGpCost": 0,
+                "possibleQualities": []
             },
             {
                 "tileDisplayName": "Cheap",
                 "color": "#4e342e",
                 "baseTpCost": 2,
-                "baseGpCost": 10
+                "baseGpCost": 10,
+                "possibleQualities": ["Stairs"]
             },
             {
                 "tileDisplayName": "Generic",
                 "color": "#c62828",
                 "baseTpCost": 8,
-                "baseGpCost": 30
+                "baseGpCost": 30,
+                "possibleQualities": ["Stairs", "Secret", "Lead Walls"]
             },
             {
                 "tileDisplayName": "Expensive",
                 "color": "#d84315",
                 "baseTpCost": 30,
-                "baseGpCost": 100
+                "baseGpCost": 100,
+                "possibleQualities": ["Stairs", "Secret", "Lead Walls"]
             },
             {
                 "tileDisplayName": "Very Expensive",
                 "color": "#f9a825",
                 "baseTpCost": 100,
-                "baseGpCost": 300
+                "baseGpCost": 300,
+                "possibleQualities": ["Stairs", "Secret", "Lead Walls"]
             }
         ],
         "OUTDOOR": [

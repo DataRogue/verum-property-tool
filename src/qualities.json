@@ -1,3 +1,20 @@
 [
-    
+    {
+        "name": "Stairs",
+        "buildCost": { "type": "MULT", "value": 1.5 },
+        "tpValue": { "type": "MULT", "value": 1 },
+        "faIcon": "level-up-alt"
+    },
+    {
+        "name": "Secret",
+        "buildCost": { "type": "MULT", "value": 3 },
+        "tpValue": { "type": "MULT", "value": 1 },
+        "faIcon": "mask"
+    },
+    {
+        "name": "Lead Walls",
+        "buildCost": { "type": "MULT", "value": 2 },
+        "tpValue": { "type": "MULT", "value": 1 },
+        "faIcon": "eye-slash"
+    }
 ]

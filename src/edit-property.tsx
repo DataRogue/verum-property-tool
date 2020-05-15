@@ -1,75 +1,46 @@
 import React, { Component, createRef } from 'react'; // let's also import Component
 import './edit-property.scss';
+import consts from "./consts.json";
+import qualities from "./qualities.json";
+import { PlayerData, TileType, DataStructures, QualityType } from './data-structures';
 
-import { PlayerData, TileType } from './data-structures';
 
-const TILE_INDOOR_CONSTS:TileConstType[] = [
-    {
-        tileType: "empty",
-        tileDisplayName: "Empty",
-        color: "white",
-        baseTpCost: 0,
-        baseGpCost: 0
-    },
-    {
-        tileType: "cheap",
-        tileDisplayName: "Cheap",
-        color: "#4e342e",
-        baseTpCost: 2,
-        baseGpCost: 10
-    },
-    {
-        tileType: "generic",
-        tileDisplayName: "Generic",
-        color: "#c62828",
-        baseTpCost: 8,
-        baseGpCost: 30
-    },
-    {
-        tileType: "expensive",
-        tileDisplayName: "Expensive",
-        color: "#d84315",
-        baseTpCost: 30,
-        baseGpCost: 100
-    },
-    {
-        tileType: "very-expensive",
-        tileDisplayName: "Very Expensive",
-        color: "#f9a825",
-        baseTpCost: 100,
-        baseGpCost: 300
-    }
-]
 
-type TileConstType = {
-    tileType: string;
+export type TileConstType = {
     tileDisplayName: string;
     color: string;
     baseTpCost: number;
     baseGpCost: number;
+    possibleQualities: string[];
 }
 
 export class Block {
     tile:TileConstType;
-    traits:string[] = [];
-    constructor(data:{tile?:TileType, const?:TileConstType}){
+    trait?:QualityType;
+    constructor(data:{tile?:TileType, const?:TileConstType, trait?:string}){
         if(data.tile){
             let t = data.tile;
-            this.tile = TILE_INDOOR_CONSTS.find(x=>x.tileDisplayName === t.name) as TileConstType;
-            this.traits = t.traits;
+            this.tile = consts.TILES.INDOOR.find(x=>x.tileDisplayName === t.name) as TileConstType;
+            this.trait = this.GetQualityByName(t.trait);
         } else if(data.const) {
             this.tile = data.const;
+            if(data.trait && data.trait!==""){
+                this.trait = this.GetQualityByName(data.trait);
+            }
         }
         else {
             throw console.error("Need either 'tile' or 'const' defined");
         }
     }
     
+    GetQualityByName(name:string):QualityType{
+        return qualities.find(x=>x.name===name) as QualityType;
+    }
 
     ConvertToTileType():TileType{
         return {
             name: this.tile.tileDisplayName,
-            traits: this.traits
+            trait: this.trait?.name || ""
         }
     }
 }
@@ -78,7 +49,8 @@ type PropertyState = {
     blockMatrix:Block[][][],
     selectedTileType:TileConstType,
     currentLevel: number,
-    currentlySelectedTraits: string[]
+    currentlySelectedTraits: string[],
+    selectedQuality:string
 }
 
 export function ConvertTileMatrixToBlockMatrix(mapMatrix:TileType[][][]):Block[][][]{
@@ -94,15 +66,18 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
       super(props)
       this.state = {
           blockMatrix : ConvertTileMatrixToBlockMatrix(props.data.mapMatrix),
-          selectedTileType: TILE_INDOOR_CONSTS[0],
+          selectedTileType: consts.TILES.INDOOR[0],
           currentLevel: 0,
-          currentlySelectedTraits: []
+          currentlySelectedTraits: [],
+          selectedQuality: ""
       }
     }
 
     private table = createRef<HTMLTableElement>();
 
-    
+    componentDidMount(){
+        this.forceUpdate();
+    }
 
     TileSelected(tile:TileConstType){
         this.setState({
@@ -110,17 +85,23 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
         })
     }
 
+    QualitySelected(quality:string){
+        this.setState({
+            selectedQuality: this.state.selectedQuality === quality ? "" : quality
+        })
+    }
+
 
     createTileTypeLegendsView(tile:TileConstType, i:number) {
         return(
-            <li onClick={()=>this.TileSelected(tile)} key={i} className={`tile-${tile.tileType} ${(tile.tileType === this.state.selectedTileType.tileType ? 'active' : '')}`}>
+            <li onClick={()=>this.TileSelected(tile)} key={i} className={`tile-${tile.tileDisplayName} ${(tile.tileDisplayName === this.state.selectedTileType.tileDisplayName ? 'active' : '')}`}>
                 {tile.tileDisplayName} <span className="color-block" style={{backgroundColor:tile.color}}></span>
             </li>
         )
     }
 
     updateTileAtCoords(coords:{x:number, y:number}){
-        const block:Block = new Block({const:this.state.selectedTileType});
+        const block:Block = new Block({const:this.state.selectedTileType, trait:this.state.selectedQuality});
         this.state.blockMatrix[coords.x][coords.y][this.state.currentLevel] = block;
         this.props.blockUpdatedCallback(this.state.blockMatrix);
         this.forceUpdate();
@@ -138,7 +119,7 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
                     <h3>Indoor:</h3>
                         <ul>
                         {
-                            TILE_INDOOR_CONSTS.map((tile, i) => this.createTileTypeLegendsView(tile, i))
+                            consts.TILES.INDOOR.map((tile, i) => this.createTileTypeLegendsView(tile, i))
                         }
                         </ul>
                     <br/>
@@ -175,7 +156,16 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
                     </table>
                 </div>
                 <div className="col-3">
-                     
+                    <h4>Tile Qualities</h4>
+                     <ul>
+                         {
+                             DataStructures.GetQualitiesFromNames(this.state.selectedTileType.possibleQualities).map((quality, i)=>(
+                                <li onClick={()=>this.QualitySelected(quality.name)} key={i} className={quality.name === this.state.selectedQuality ? 'active' : ''} >
+                                    {quality.name}
+                                </li>  
+                             ))
+                         }
+                     </ul>
                 </div>
             </div>
         );
@@ -192,6 +182,7 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
             <td onClick={()=>this.props.clickCallback(this.props.coords)}
                 style={{backgroundColor:this.props.blockData.tile.color, height:this.props.height}}
             >
+                <i className={`fas fa-${this.props.blockData.trait?.faIcon || ""}`}></i>
                 </td>
         )
     }

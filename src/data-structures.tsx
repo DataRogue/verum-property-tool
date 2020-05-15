@@ -1,5 +1,6 @@
 import consts from "./consts.json";
 import traits from "./traits.json";
+import qualities from "./qualities.json";
 import { AppState } from "./App";
 import { Block, ConvertBlockMatrixToTileMatrix } from './edit-property';
 
@@ -22,16 +23,8 @@ export class DataStructures {
         return names.map(x=>traits.find(y=>y.name===x) as Trait);
     }
 
-    static GetQualityFromBlock(block:Block):Trait{
-        return {
-            "name": "Beautiful",
-            "description": "The land either has an amazing view or is in an area valued for its fantastic majestic beauty. The land itself costs double but building blocks grant 50% addition TP. /n /n Can't be select with the Slumtown trait.",
-            "dangerLevel": { "type": "ADD", "value": 0 },
-            "landCost": { "type": "MULT", "value": 2 },
-            "buildCost": { "type": "MULT", "value": 1 },
-            "tpValue": { "type": "MULT", "value": 1.5 },
-            "exclusiveWith": ["Slumtown"]
-        };
+    static GetQualitiesFromNames(names:string[]):QualityType[]{
+        return names.map(x=>qualities.find(y=>y.name===x) as QualityType);
     }
 
     static ResolveValueModifier(prevVal:number, modifier:ValueModifierType):number{
@@ -44,9 +37,16 @@ export class DataStructures {
     }
 }
 
+export type QualityType = {
+    name: string,
+    buildCost: ValueModifierType,
+    tpValue: ValueModifierType,
+    faIcon: string
+}
+
 export type TileType = {
     name: string,
-    traits: string[]
+    trait: string
 }
 
 export type PlayerData = {
@@ -130,7 +130,7 @@ export class DataSerializer {
                 floor[i][j]=[];
                 floor[i][j][0] = {
                 name: "Empty",
-                traits: []
+                trait: ""
                 }
             }
         }

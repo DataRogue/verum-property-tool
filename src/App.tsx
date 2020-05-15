@@ -4,19 +4,8 @@ import './App.scss';
 import { Block, EditProperty, ConvertTileMatrixToBlockMatrix, ConvertBlockMatrixToTileMatrix } from './edit-property';
 import { SelectCountry, SelectRegion, SelectTraits, SelectSize } from './select-country';
 import consts from "./consts.json";
-import { Trait, CountryType, COUNTRY_DEFAULT, SubregionType, DataStructures, PlayerData, TileType, DataSerializer } from './data-structures';
+import { Trait, CountryType, COUNTRY_DEFAULT, SubregionType, DataStructures, PlayerData, TileType, DataSerializer, ValueModifierType } from './data-structures';
 import Files from 'react-files';
-
-
-
-
-function generateDefaultBlock():Block{
-  return new Block({tile:{
-    name: "Empty",
-    traits:[]
-  }
-  });
-}
 
 export type AppState = {
   stage:string,
@@ -201,7 +190,6 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
     });
 
     let landCost:number = 0;
-    console.log(props.data.mapMatrix);
     if(props.data.mapMatrix.length > 0) landCost = props.data.mapMatrix.flat().length*consts.TILES.BASE_COSTS.LAND_COST*finalMultipliers.landCost;
 
     let buildCost:number = 0;
@@ -210,7 +198,16 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
     if(props.data.mapMatrix.length > 0) {
       let blockMatrix = ConvertTileMatrixToBlockMatrix(props.data.mapMatrix)
       blockMatrix.flat().flat().map((block)=>{
-        let multipliers = DataStructures.GetQualityFromBlock(block);
+
+        let multipliers = {
+          buildCost: { type: "MULT", value: 1 } as ValueModifierType,
+          tpValue: { type: "MULT", value: 1 } as ValueModifierType
+        }
+
+        if(block.trait){
+          multipliers = block.trait;
+        }
+
         buildCost += DataStructures.ResolveValueModifier(block.tile.baseGpCost, multipliers.buildCost);
         tpValue += DataStructures.ResolveValueModifier(block.tile.baseTpCost, multipliers.tpValue);
       })

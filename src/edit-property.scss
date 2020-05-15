@@ -4,6 +4,16 @@ table{
         height: 100%;
         td{
             border: black 1px solid;
+            .fas{
+                position: absolute;
+                color: white;
+                font-size: 28px;
+                margin-left: -20px;
+                margin-top: -14px;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+            }
         }
     }
 }
