@@ -1,11 +1,14 @@
 import React, { Component, RefObject } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { Block, EditProperty, ConvertTileMatrixToBlockMatrix, ConvertBlockMatrixToTileMatrix } from './edit-property';
 import { SelectCountry, SelectRegion, SelectTraits, SelectSize } from './select-country';
 import consts from "./consts.json";
 import { Trait, CountryType, COUNTRY_DEFAULT, SubregionType, DataStructures, PlayerData, TileType, DataSerializer } from './data-structures';
 import Files from 'react-files';
+
+
+
 
 function generateDefaultBlock():Block{
   return new Block({tile:{

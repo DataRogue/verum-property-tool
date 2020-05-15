@@ -3,6 +3,17 @@ import React from "react";
 import consts from "./consts.json";
 import { DataStructures, Trait, SubregionType } from './data-structures';
 
+import {ReactComponent as Badlands} from './maps/Map_Badlands.svg';
+import {ReactComponent as Bloodwave} from './maps/Map_Bloodwave.svg';
+import {ReactComponent as Daborak} from './maps/Map_Daborak.svg';
+import {ReactComponent as Dolten} from './maps/Map_Dolten.svg';
+import {ReactComponent as Khao} from './maps/Map_Khao.svg';
+import {ReactComponent as Krazax} from './maps/Map_Krazax.svg';
+import {ReactComponent as Majital} from './maps/Map_Majital.svg';
+import {ReactComponent as Orde} from './maps/Map_Orde.svg';
+import {ReactComponent as Rift} from './maps/Map_Rift.svg';
+import {ReactComponent as Steton} from './maps/Map_Steton.svg';
+
 export class SelectCountry extends Component<{selectedCountry:string, selectCountryCallback:Function}>{
     render(){
         return (
@@ -18,7 +29,19 @@ export class SelectCountry extends Component<{selectedCountry:string, selectCoun
                     </ul>
                 </div>
                 <div className="col">
-                    Pretty pictures and shit go here
+                    <div className="map-container">
+                        <Badlands className={this.props.selectedCountry === "Badlands" ? "map-highlight" : ""} />
+                        <Bloodwave className={this.props.selectedCountry === "Bloodwave Bay" ? "map-highlight" : ""} />
+                        <Orde className={this.props.selectedCountry === "Orde" ? "map-highlight" : ""}/>
+                        <Dolten className={this.props.selectedCountry === "Dolten" ? "map-highlight" : ""} />
+                        <Daborak className={this.props.selectedCountry === "Daborak" ? "map-highlight" : ""} />
+                        <Khao className={this.props.selectedCountry === "Khao (Country)" ? "map-highlight" : ""} />
+                        <Krazax className={this.props.selectedCountry === "Krazax" ? "map-highlight" : ""} />
+                        <Majital className={this.props.selectedCountry === "Majital" ? "map-highlight" : ""} />
+                        <Orde className={this.props.selectedCountry === "Orde" ? "map-highlight" : ""} />
+                        <Rift className={this.props.selectedCountry === "Rift" ? "map-highlight" : ""} />
+                        <Steton className={this.props.selectedCountry === "Steton" ? "map-highlight" : ""} />
+                    </div>
                 </div>
             </div>
         )
@@ -26,10 +49,28 @@ export class SelectCountry extends Component<{selectedCountry:string, selectCoun
 }
 
 export class SelectRegion extends Component<{selectedCountry:string, selectRegionCallback:Function, selectedSubregion:string}>{
+    getCorrectCountryView(){
+        switch(this.props.selectedCountry){
+            case "Badlands": return <Badlands />;
+            case "Bloodwave Bay": return <Bloodwave />;
+            case "Orde": return <Orde />;
+            case "Dolten": return <Dolten />;
+            case "Daborak": return <Daborak />;
+            case "Khao (Country)": return <Khao />;
+            case "Krazax": return <Krazax />;
+            case "Majital": return <Majital />;
+            case "Orde": return <Orde />;
+            case "Rift": return <Rift />;
+            case "Steton": return <Steton />;
+        }
+        return <div/>
+    }
+
     render(){
         const country = consts.COUNTRIES.find(country => country.name === this.props.selectedCountry);
         const regions = country?.regions || [];
 
+        
         let defaultSubregion = {
             "name": "",
             "dangerLevel": 0,
@@ -40,6 +81,8 @@ export class SelectRegion extends Component<{selectedCountry:string, selectRegio
         if(this.props.selectedSubregion !== ""){
             defaultSubregion = regions.flatMap(x=> x.subregions).find(y=>y.name === this.props.selectedSubregion) || defaultSubregion;
         }
+
+        
         return (
             <div className="row">
                 <div className="col-2">
@@ -59,7 +102,7 @@ export class SelectRegion extends Component<{selectedCountry:string, selectRegio
                     }
                 </div>
                 <div className="col">
-                    Pretty pictures and shit go here
+                    {this.getCorrectCountryView()}
                 </div>
             </div>
         )

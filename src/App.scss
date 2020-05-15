@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.map-container{
+  width: 100%;
+  height: 720px;
+  position: relative;
+  svg{
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: inline-block;
+    &.map-highlight{
+      fill:#ef9a9a;
+    }
+  }
+}
