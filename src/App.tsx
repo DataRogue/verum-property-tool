@@ -104,12 +104,10 @@ class App extends Component<{}, AppState> {
       <div className="App">
         <div className="row title fixed-top">
           <div className="col">
-            <h2 className="">Verum Property Tool</h2>
+            <h2>Verum Property Tool</h2>
           </div>
         </div>
         <div className="container-fluid main-content">
-          
-          <br/>
           {
             this.state.stage !== "landing" ? <Header data={this.data.playerData}/> : null
           }
@@ -118,6 +116,7 @@ class App extends Component<{}, AppState> {
             case 'landing':
               return (
                 <div className="row">
+                  <br/>
                   <div className="col">
                     <div className="col-12"><h3>Create A New Property?</h3></div>
                     <div className="col-12"><button type="button" className="btn btn-outline-primary btn-lg btn-block new-property-button" onClick={()=>{this.setState({stage:"country-select"})}}>New Property</button></div>
@@ -127,6 +126,7 @@ class App extends Component<{}, AppState> {
                     <div className="col-12"><FileInput UploadedJson={(newJson:any)=>this.UploadedJson(newJson)}></FileInput></div>
                   </div>
                   <div className="col-12">
+                    <br/>
                     <hr/>
                     By Dmitri "SweetBro" Roujan and Jonathan "Dr Imp" Brimble
                     <p>
