@@ -1,68 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What did you make this project with?
+TypeScript, React, SASS, and a few other packages. 
 
-## Available Scripts
+## ELI5 What the license for this means?
+I'm releasing this project under the Attribution-ShareAlike 4.0 International license. Which in short means you can use it for whatever you want including commercial purposes, so long as: myself (SweetBro) and Dr. Imp are properly credited in a visible location AND any derivatives of this codebase follow the same license. Meaning you can't make a 1 line edit and strip our names from the credits nor are you allowed to make a few changes and then sell the tool to another living world.
 
-In the project directory, you can run:
+## How do I run this thing locally?
+You're going to need to install node and npm. Then in a terminal window run then `npm start` command.
 
-### `yarn start`
+## How do I deploy this thing?
+Clone the github repo. Change the `homepage` field in `package.json` to match your github pages domain. Then run `npm run deploy` from your terminal.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How hard is it to make changes to the values?
+All data sits in the following files: `consts.json`, `traits.json`, and `qualities.json.` These can be edited with any text editor and I recommend using something `https://jsoneditoronline.org/` to make sure you didn't goof up the formatting. Almost all of the data inputs for the demo have been done by Dr. Imp as a demonstration that no special technical skills are required to do this.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Currently the only thing that isn't data-driven are the maps which is mostly due to time-constraints.
 
-### `yarn test`
+## Cool so everything is data-driven and we can change basically everything, is there anything we shouldn't change?
+Don't changes names. For the demo, they're being used as identifiers. Also if you want to add a new trait/quality you need to first add it to its respective json file and then add it to list of traits/qualities that each subregions/tile has access to.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How does loading/saving works?
+This is an entirely clientside tool. User property gets saved to a JSON that is downloaded on the user hard drive. When they want to view it again, they can load it up in the app via the drag/drop interface.
 
-### `yarn build`
+## How do we prevent cheating?
+The tool is written in such a way as such that actual numbers never get saved into the user's JSON and are instead calculated from the tool's constants every time. Meaning that although the user can modify their files manually at-will, it is impossible to cheat and gain an unfair advantage without a GM covering for them. The only possible exception is changing their region after property creation, but this is so minor and so easy to spot it is a non-issue. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## XYZ feature is missing!
+Not a question. Some features I cut for time sake simply because I viewed them as lower priority than other things. Nothing in the project's original spec was uniquely technically challenging, but some were not really worth the time spent to result gained in a demo environment. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## I'm a programmer and I think Line X or Y is shitcode!
+Also not a question. Cool, so do I. I threw this tool togeather in ~23 hours of work in my spare time. You're more than welcome to fork improve this.
