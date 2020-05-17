@@ -234,10 +234,10 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
     if(props.data.countryName !== "" && props.data.regionName !== ""){
       let country = DataStructures.GetCountryDataByName(props.data.countryName);
       let baseRegionValues = DataStructures.GetSubregionByName(country, props.data.regionName);
-      finalMultipliers.dangerLevel = baseRegionValues.dangerLevel;
-      finalMultipliers.buildCost = baseRegionValues.buildCost;
-      finalMultipliers.landCost = baseRegionValues.landCost;
-      finalMultipliers.tpValue = baseRegionValues.tpValue;
+      finalMultipliers.dangerLevel = baseRegionValues.dangerLevel * finalMultipliers.dangerLevel ;
+      finalMultipliers.buildCost = baseRegionValues.buildCost * finalMultipliers.buildCost ;
+      finalMultipliers.landCost = baseRegionValues.landCost * finalMultipliers.landCost ;
+      finalMultipliers.tpValue = baseRegionValues.tpValue * finalMultipliers.tpValue ;
     }
 
     let landCost:number = 0;
@@ -293,10 +293,10 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
         <div className="col-3">
           <h5>Current Multipliers</h5>
           <div>
-              Danger Level - {this.state.multipliers.dangerLevel} <br/>
-              Land Cost - {this.state.multipliers.landCost*100}% <br/>
-              Build Cost -  {this.state.multipliers.buildCost*100}% <br/>
-              TP Value -  {this.state.multipliers.tpValue*100}% <br/>
+              Danger Level - {Math.round(this.state.multipliers.dangerLevel)} <br/>
+              Land Cost - {Math.round(this.state.multipliers.landCost)*100}% <br/>
+              Build Cost -  {Math.round(this.state.multipliers.buildCost)*100}% <br/>
+              TP Value -  {Math.round(this.state.multipliers.tpValue)*100}% <br/>
           </div>
         </div>
       </div>
