@@ -277,9 +277,9 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
         <div className="col-3">
           <h5>Total Cost Information</h5>
           <div>
-              Land Cost - {this.state.calculatedLandCost} gp <br/>
-              Build Cost - {this.state.calculatedGoldCost} gp <br/>
-              TP Value -  {this.state.calculatedTpCost} tp <br/>
+              Land Cost - {Math.round(this.state.calculatedLandCost)} gp <br/>
+              Build Cost - {Math.round(this.state.calculatedGoldCost)} gp <br/>
+              TP Value -  {Math.round(this.state.calculatedTpCost)} tp <br/>
           </div>
         </div>
         <div className="col">
