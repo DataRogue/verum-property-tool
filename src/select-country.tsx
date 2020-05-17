@@ -1,7 +1,7 @@
 import { Component, Ref, createRef } from "react";
 import React from "react";
 import consts from "./consts.json";
-import { DataStructures, Trait, SubregionType } from './data-structures';
+import { DataStructures, Trait, SubregionType, CountryType } from './data-structures';
 
 import {ReactComponent as Badlands} from './maps/Map_Badlands.svg';
 import {ReactComponent as Bloodwave} from './maps/Map_Bloodwave.svg';
@@ -39,7 +39,7 @@ export class SelectCountry extends Component<{selectedCountry:string, selectCoun
                         <Krazax className={this.props.selectedCountry === "Krazax" ? "map-highlight" : ""} />
                         <Majital className={this.props.selectedCountry === "Majital" ? "map-highlight" : ""} />
                         <Orde className={this.props.selectedCountry === "Orde" ? "map-highlight" : ""} />
-                        <Rift className={this.props.selectedCountry === "Rift" ? "map-highlight" : ""} />
+                        <Rift className={this.props.selectedCountry === "The Rift" ? "map-highlight" : ""} />
                         <Steton className={this.props.selectedCountry === "Steton" ? "map-highlight" : ""} />
                     </div>
                 </div>
@@ -60,17 +60,16 @@ export class SelectRegion extends Component<{selectedCountry:string, selectRegio
             case "Krazax": return <Krazax />;
             case "Majital": return <Majital />;
             case "Orde": return <Orde />;
-            case "Rift": return <Rift />;
+            case "The Rift": return <Rift />;
             case "Steton": return <Steton />;
         }
         return <div/>
     }
 
     render(){
-        const country = consts.COUNTRIES.find(country => country.name === this.props.selectedCountry);
-        const regions = country?.regions || [];
+        const country = consts.COUNTRIES.find(country => country.name === this.props.selectedCountry) as CountryType;
+        const regions = country.regions;
 
-        
         let defaultSubregion = {
             "name": "",
             "dangerLevel": 0,
@@ -80,7 +79,7 @@ export class SelectRegion extends Component<{selectedCountry:string, selectRegio
         };
 
         if(this.props.selectedSubregion !== ""){
-            defaultSubregion = regions.flatMap(x=> x.subregions).find(y=>y.name === this.props.selectedSubregion) || defaultSubregion;
+            defaultSubregion = regions.flatMap(x=> x.subregions as SubregionType[]).find(y=>y.name === this.props.selectedSubregion) || defaultSubregion;
         }
 
         

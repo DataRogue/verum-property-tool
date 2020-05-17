@@ -1,56 +1,199 @@
 [
     {
-        "name": "Efficient Infrastructure",
-        "description": "Carouser provost lugger code of conduct Barbary Coast poop deck pinnace tender prow Pieces of Eight. Overhaul spyglass landlubber or just lubber swing the lead execution dock hulk line squiffy galleon gun. Parrel bilge rat belaying pin lanyard warp avast Shiver me timbers booty blow the man down lad.",
-        "dangerLevel": { "type": "ADD", "value": 1 },
-        "landCost": { "type": "MULT", "value": 2 },
-        "buildCost": { "type": "MULT", "value": 1 },
-        "tpValue": { "type": "MULT", "value": 1 },
-        "exclusiveWith": []
+      "name": "Efficient Infrastructure",
+      "description": "Land Cost increased by 40%\nBuild Cost decreased by 20%\nTier Points increased by 10%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 1
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 1.4
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 0.8
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 1.1
+      },
+      "exclusiveWith": []
     },
     {
-        "name": "Docks",
-        "description": "Ahoy barkadeer draft stern crimp maroon bilge lanyard no prey, no pay black spot. Square-rigged man-of-war swab run a rig avast rigging chase guns walk the plank ye main sheet. Lugsail spanker holystone scourge of the seven seas weigh anchor gally careen carouser run a rig yo-ho-ho.",
-        "dangerLevel": { "type": "ADD", "value": 1 },
-        "landCost": { "type": "MULT", "value": 2 },
-        "buildCost": { "type": "MULT", "value": 1 },
-        "tpValue": { "type": "MULT", "value": 1 },
-        "exclusiveWith": []
+      "name": "Docks",
+      "description": "One side of this land has a dock so that the player can store a boat.\nDanger Level increased by 20%\nLand Cost increased by 20%\nBuild Cost decreased by 10%\nTier Points increased by 10%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 1.2
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 1.2
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 0.9
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 1.1
+      },
+      "exclusiveWith": []
     },
     {
-        "name": "Celebrity Town",
-        "description": "Log yardarm bilge water snow crimp no prey, no pay bounty gabion line Shiver me timbers. Crow's nest chandler gunwalls cutlass hardtack pinnace gally knave draft sutler. Ho coffer Buccaneer long clothes Spanish Main Jack Tar poop deck galleon parley quarterdeck.",
-        "dangerLevel": { "type": "ADD", "value": 1 },
-        "landCost": { "type": "MULT", "value": 2 },
-        "buildCost": { "type": "MULT", "value": 1 },
-        "tpValue": { "type": "MULT", "value": 1 },
-        "exclusiveWith": []
+      "name": "Celebrity Town",
+      "description": "Prestige is required to buy this land.\nLand Cost increased by 60%\nTier Points increased by 30%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 1
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 1.6
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 1
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 1.3
+      },
+      "exclusiveWith": []
     },
     {
-        "name": "Booming Economy",
-        "description": "Booming economy? More like boomerless economy. Ha!",
-        "dangerLevel": { "type": "ADD", "value": 1 },
-        "landCost": { "type": "MULT", "value": 2 },
-        "buildCost": { "type": "MULT", "value": 1 },
-        "tpValue": { "type": "MULT", "value": 1 },
-        "exclusiveWith": []
+      "name": "Booming Economy",
+      "description": "Land cost increased by 20%\nTier Points increased by 10%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 1
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 1.2
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 1
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 1.1
+      },
+      "exclusiveWith": []
     },
     {
-        "name": "Beautiful",
-        "description": "The land either has an amazing view or is in an area valued for its fantastic majestic beauty. The land itself costs double but building blocks grant 50% addition TP. Can't be select with the Slumtown trait.",
-        "dangerLevel": { "type": "ADD", "value": 0 },
-        "landCost": { "type": "MULT", "value": 2 },
-        "buildCost": { "type": "MULT", "value": 1 },
-        "tpValue": { "type": "MULT", "value": 1.5 },
-        "exclusiveWith": ["Slumtown"]
+      "name": "Beautiful",
+      "description": "This land either has an amazing view or is in an area valued for its fantastic, majestic beauty. The land itself costs considerably more but it is a price many are willing to pay for such a view.\nLand cost increased by 100%\nTier Points increased by 50%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 1
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 2
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 1
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 1.5
+      },
+      "exclusiveWith": [
+        "Slumtown"
+      ]
     },
     {
-        "name": "Slumtown",
-        "description": "Poop",
-        "dangerLevel": { "type": "ADD", "value": 1 },
-        "landCost": { "type": "MULT", "value": 2 },
-        "buildCost": { "type": "MULT", "value": 1 },
-        "tpValue": { "type": "MULT", "value": 1 },
-        "exclusiveWith": ["Beautiful"]
+      "name": "Slumtown",
+      "description": "Danger Level increased by 50%\nLand Cost decreased by 40%\nBuild Cost decreased by 20%\nTier Points decreased by 20%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 1.5
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 0.6
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 0.8
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 0.8
+      },
+      "exclusiveWith": [
+        "Beautiful"
+      ]
+    },
+    {
+      "name": "On world road",
+      "description": "Danger Level decreased by 40%\nLand Cost increased by 30%\nBuild Cost decreased by 10%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 0.6
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 1.3
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 0.9
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 1
+      },
+      "exclusiveWith": [
+        "Off road"
+      ]
+    },
+    {
+      "name": "Off road",
+      "description": "Danger Level increased by 50%\nLand Cost decreased by 40%\nBuild Cost increased by 30%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 1.5
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 0.6
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 1.3
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 1
+      },
+      "exclusiveWith": [
+        "On world road"
+      ]
+    },
+    {
+      "name": "Barren / Boggy",
+      "description": "Danger Level increased by 20%\nLand Cost decreased by 50%\nBuild Cost increased by 40%",
+      "dangerLevel": {
+        "type": "MULT",
+        "value": 1.2
+      },
+      "landCost": {
+        "type": "MULT",
+        "value": 0.5
+      },
+      "buildCost": {
+        "type": "MULT",
+        "value": 1.4
+      },
+      "tpValue": {
+        "type": "MULT",
+        "value": 1
+      },
+      "exclusiveWith": []
     }
-]
+  ]

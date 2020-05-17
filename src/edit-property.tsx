@@ -4,8 +4,6 @@ import consts from "./consts.json";
 import qualities from "./qualities.json";
 import { PlayerData, TileType, DataStructures, QualityType } from './data-structures';
 
-
-
 export type TileConstType = {
     tileDisplayName: string;
     color: string;
@@ -14,13 +12,15 @@ export type TileConstType = {
     possibleQualities: string[];
 }
 
+const allTiles = consts.TILES.INDOOR.concat(consts.TILES.OUTDOOR, consts.TILES.SPECIAL);
+
 export class Block {
     tile:TileConstType;
     trait?:QualityType;
     constructor(data:{tile?:TileType, const?:TileConstType, trait?:string}){
         if(data.tile){
             let t = data.tile;
-            this.tile = consts.TILES.INDOOR.find(x=>x.tileDisplayName === t.name) as TileConstType;
+            this.tile = allTiles.find(x=>x.tileDisplayName === t.name) as TileConstType;
             this.trait = this.GetQualityByName(t.trait);
         } else if(data.const) {
             this.tile = data.const;
@@ -127,17 +127,20 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
 
                     <h3>Outdoor</h3>
                     <hr/>
-                    <div>Field <span className="tile tile-field"></span></div>
-                    <div>Decorated <span className="tile tile-decorated"></span></div>
-                    <div>Well Decorated <span className="tile tile-well-decorated"></span></div>
-                    <div>Very Decorated <span className="tile tile-very-decorated"></span></div>
+                    <ul>
+                        {
+                            consts.TILES.OUTDOOR.map((tile, i) => this.createTileTypeLegendsView(tile, i))
+                        }
+                    </ul>
                     <br/>
-                    
+
                     <h3>Special</h3>
                     <hr/>
-                    <div>Reinforced Wooden Wall <span className="tile tile-wooden-wall"></span></div>
-                    <div>Reinforced Stone Wall <span className="tile tile-stone-wall"></span></div>
-                    <div>Escape Tunnel <span className="tile tile-escape-tunnel"></span></div>
+                    <ul>
+                        {
+                            consts.TILES.SPECIAL.map((tile, i) => this.createTileTypeLegendsView(tile, i))
+                        }
+                    </ul>
                 </div>
                 <div className="col">
                     <table ref={this.table} className="block-matrix-table">
