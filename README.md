@@ -29,6 +29,9 @@ The tool is written in such a way as such that actual numbers never get saved in
 ## XYZ feature is missing!
 Not a question. Some features I cut for time sake simply because I viewed them as lower priority than other things. Nothing in the project's original spec was uniquely technically challenging, but some were not really worth the time spent to result gained in a demo environment. 
 
+## What non-feature things should be done before this is put into use?
+From highest priority to lowest: better validation to catch data inputs with more precision, data-driven map inputs, smaller version of zoomed in maps, code clean up. None of these are a requirement, but each is going to save a headache or two down the line.
+
 ## I'm a programmer and I think Line X or Y is shitcode!
 Also not a question. Cool, so do I. I threw this tool togeather in ~23 hours of work in my spare time. You're more than welcome to fork improve this.
 
