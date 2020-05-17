@@ -39,7 +39,7 @@
                             ]
                         },
                         {
-                            "name": "Coast",
+                            "name": "The Freelands Coast",
                             "dangerLevel": 400,
                             "landCost": 0.9,
                             "buildCost": 1.8,
@@ -49,7 +49,7 @@
                             ]
                         },
                         {
-                            "name": "Inland",
+                            "name": "The Freelands Inland",
                             "dangerLevel": 280,
                             "landCost": 0.6,
                             "buildCost": 3,
@@ -64,7 +64,7 @@
                     "name":"The Wild Isles",
                     "subregions":[
                         {
-                            "name": "Coast",
+                            "name": "The Wild Isles Coast",
                             "dangerLevel": 550,
                             "landCost": 1.1,
                             "buildCost": 3,
@@ -74,7 +74,7 @@
                             ]
                         },
                         {
-                            "name": "Inland",
+                            "name": "The Wild Isles Inland",
                             "dangerLevel": 400,
                             "landCost": 0.9,
                             "buildCost": 4,
