@@ -81,7 +81,8 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
 
     TileSelected(tile:TileConstType){
         this.setState({
-            selectedTileType:tile
+            selectedTileType:tile,
+            selectedQuality: ""
         })
     }
 

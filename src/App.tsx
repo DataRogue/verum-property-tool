@@ -127,6 +127,23 @@ class App extends Component<{}, AppState> {
                   </div>
                   <div className="col-12">
                     <br/>
+                    <h5>How do I...</h5>
+                    <h6>To make a new property?</h6>
+                    <p>
+                      Hit Create A New Property and follow the step-by-step instructions to purchase land and build a property on top of it. You will select your country, region, any or no traits in that region, property size, and you're free to fill in the grid with the tiles you want.
+                    </p>
+                    <h6>Save/Load?</h6>
+                    <p>
+                      When you're done. Hit the download JSON button. Anytime you want to look or work on your property again just open up the tool and drag it into the right-side box
+                    </p>
+                    <h6>Use it in MapTools?</h6>
+                    <p>
+                      You can also screen cap the map (or download an automatically sized image) and use it as a map in MapTools to roleplay in. Each square translates to a 5ft square in DnD.
+                    </p>
+                    <h6>What is TP?</h6>
+                    <p>
+                      Increasing your TP (Tier Points) by building in fancier areas and using more expensive tiles will increase your building's tier (1-10). Kind of like Prestige, but for buildings. The higher your tier is the more gold your building can generate. Additional benefits (if any) are TBD but we're aiming for something that resembles weaker non-stacking versions of some faction benefits to be voted on by the community.
+                    </p>
                     <hr/>
                     By Dmitri "SweetBro" Roujan and Jonathan "Dr Imp" Brimble
                     <p>
