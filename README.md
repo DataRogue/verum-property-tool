@@ -1,3 +1,5 @@
+![https://creativecommons.org/licenses/by-sa/4.0/](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
+
 ## What did you make this project with?
 TypeScript, React, SASS, and a few other packages. 
 
