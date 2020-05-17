@@ -29,3 +29,6 @@ Not a question. Some features I cut for time sake simply because I viewed them a
 
 ## I'm a programmer and I think Line X or Y is shitcode!
 Also not a question. Cool, so do I. I threw this tool togeather in ~23 hours of work in my spare time. You're more than welcome to fork improve this.
+
+## SweetBro we love you!
+![](https://media1.tenor.com/images/f77b4d5d1bdb39680d6eede56d0ac04e/tenor.gif?itemid=9058665)
