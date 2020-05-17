@@ -234,7 +234,10 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
     if(props.data.countryName !== "" && props.data.regionName !== ""){
       let country = DataStructures.GetCountryDataByName(props.data.countryName);
       let baseRegionValues = DataStructures.GetSubregionByName(country, props.data.regionName);
-      finalMultipliers = {...baseRegionValues};
+      finalMultipliers.dangerLevel = baseRegionValues.dangerLevel;
+      finalMultipliers.buildCost = baseRegionValues.buildCost;
+      finalMultipliers.landCost = baseRegionValues.landCost;
+      finalMultipliers.tpValue = baseRegionValues.tpValue;
     }
 
     let landCost:number = 0;
