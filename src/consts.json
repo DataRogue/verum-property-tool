@@ -506,9 +506,7 @@
                             "traits": [
                                 "Efficient Infrastructure", "Celebrity Town", "Booming Economy", "Beautiful", "Slumtown"
                             ]
-                        }
-                    ]
-                },
+                        },
                         {
                             "name": "Rural Coast",
                             "dangerLevel": 450,
@@ -519,6 +517,8 @@
                                 "Efficient Infrastructure", "Docks", "Booming Economy", "Beautiful", "On world road", "Off road", "Barren / Boggy"
                             ]
                         }
+                    ]
+                } 
             ]
         },
         {

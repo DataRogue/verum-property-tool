@@ -294,9 +294,9 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
           <h5>Current Multipliers</h5>
           <div>
               Danger Level - {Math.round(this.state.multipliers.dangerLevel)} <br/>
-              Land Cost - {Math.round(this.state.multipliers.landCost)*100}% <br/>
-              Build Cost -  {Math.round(this.state.multipliers.buildCost)*100}% <br/>
-              TP Value -  {Math.round(this.state.multipliers.tpValue)*100}% <br/>
+              Land Cost - {Math.round(this.state.multipliers.landCost*100)}% <br/>
+              Build Cost -  {Math.round(this.state.multipliers.buildCost*100)}% <br/>
+              TP Value -  {Math.round(this.state.multipliers.tpValue*100)}% <br/>
           </div>
         </div>
       </div>
