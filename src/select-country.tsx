@@ -18,8 +18,8 @@ export class SelectCountry extends Component<{selectedCountry:string, selectCoun
     render(){
         return (
             <div className="row">
-                <div className="col-2">
-                    <h2>Select Country:</h2>
+                <div className="col-3">
+                    <h2>Select Country</h2>
                     <ul>
                         {
                             consts.COUNTRIES.map((x, i)=>(
@@ -86,8 +86,8 @@ export class SelectRegion extends Component<{selectedCountry:string, selectRegio
         
         return (
             <div className="row">
-                <div className="col-2">
-                    <h2>Select Region:</h2>
+                <div className="col-3">
+                    <h2>Select Region</h2>
                     {
                         regions.map((region, i)=>(
                             <div key={i} className="row">
@@ -103,7 +103,9 @@ export class SelectRegion extends Component<{selectedCountry:string, selectRegio
                     }
                 </div>
                 <div className="col">
-                    {this.getCorrectCountryView()}
+                    <div className="map-container">
+                        {this.getCorrectCountryView()}
+                    </div>
                 </div>
             </div>
         )
@@ -138,8 +140,8 @@ export class SelectTraits extends Component<{possibleTraits:Trait[], selectedTra
 
         return (
             <div className="row">
-                <div className="col-5">
-                    <h2>{this.props.countryName} Traits:</h2>
+                <div className="col-3">
+                    <h2>{this.props.countryName} Traits</h2>
                     <ul>
                     {
                         //To-do, list render all the possible traits

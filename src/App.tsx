@@ -82,62 +82,109 @@ class App extends Component<{}, AppState> {
     }
   }
 
+  canGoNext(){
+    switch(this.state.stage){
+      case 'country-select':
+        if(this.state.selectedCountry !== "") return true;
+        return false
+      case 'region-select':
+        if(this.state.selectedRegion !== "") return true;
+        return false;
+      case 'size-select':
+        if(this.state.selectedGridSize.x > 0) return true;
+        return false;
+      default: 
+        return true
+    }
+  }
+
   render(){
     this.data.ConstructData(this.state);
     return (
       <div className="App">
-        {
-          this.state.stage !== "landing" ? <Header data={this.data.playerData}/> : null
-        }
-        {(() => {
-        switch (this.state.stage) {
-          case 'landing':
-            return (
-              <div className="row">
-                <div className="col"><button onClick={()=>{this.setState({stage:"country-select"})}}>New Property</button></div>
-                <div className="col"><FileInput UploadedJson={(newJson:any)=>this.UploadedJson(newJson)}></FileInput></div>
-              </div>
-            );
-          case 'country-select':
-            return (
-            <div>
-              <SelectCountry selectedCountry={this.state.selectedCountry} selectCountryCallback={(x:string)=>this.countrySelectCallback(x)}/>
-            </div>
-            );
-          case 'region-select':
+        <div className="row title fixed-top">
+          <div className="col">
+            <h2 className="">Verum Property Tool</h2>
+          </div>
+        </div>
+        <div className="container-fluid main-content">
+          
+          <br/>
+          {
+            this.state.stage !== "landing" ? <Header data={this.data.playerData}/> : null
+          }
+          {(() => {
+          switch (this.state.stage) {
+            case 'landing':
+              return (
+                <div className="row">
+                  <div className="col">
+                    <div className="col-12"><h3>Create A New Property?</h3></div>
+                    <div className="col-12"><button type="button" className="btn btn-outline-primary btn-lg btn-block new-property-button" onClick={()=>{this.setState({stage:"country-select"})}}>New Property</button></div>
+                  </div>
+                  <div className="col">
+                    <div className="col-12"><h3>Edit An Existing Property</h3></div>
+                    <div className="col-12"><FileInput UploadedJson={(newJson:any)=>this.UploadedJson(newJson)}></FileInput></div>
+                  </div>
+                  <div className="col-12">
+                    <hr/>
+                    By Dmitri "SweetBro" Roujan and Jonathan "Dr Imp" Brimble
+                    <p>
+                      <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+                        <img src="https://licensebuttons.net/l/by-sa/3.0/88x31.png"></img>
+                      </a>
+                    </p>
+                   
+                  </div>
+                </div>
+              );
+            case 'country-select':
               return (
               <div>
-                <SelectRegion selectedSubregion={this.state.selectedRegion} selectedCountry={this.state.selectedCountry} selectRegionCallback={(x:string)=>this.regionSelectCallback(x)} ></SelectRegion>
+                <SelectCountry selectedCountry={this.state.selectedCountry} selectCountryCallback={(x:string)=>this.countrySelectCallback(x)}/>
               </div>
               );
-          case 'trait-select':
-            let country:CountryType = consts.COUNTRIES.find(country => country.name === this.state.selectedCountry) as CountryType;
-            let selectedRegion:SubregionType = DataStructures.GetSubregionByName(country, this.state.selectedRegion);
-            let possibleTraits:Trait[] = DataStructures.GetTraitsFromNames(selectedRegion.traits);
-            let selectedTraits:Trait[] = this.state.selectedTraits.map((x)=> possibleTraits.find(y=>y.name === x) as Trait);
-            return (
-              <SelectTraits selectedTraits={selectedTraits} possibleTraits={possibleTraits} countryName={country.name} selectTraitCallback={(x:string)=>this.traitSelectCallback(x)} baseMultiplier={selectedRegion} />
-            );
-          case 'size-select':{
-            return(
-              <SelectSize possibleGridSizes={consts.GRID_SIZES} selectedGridSize={this.state.selectedGridSize} gridSizeSelectCallback={(grid:{x:number, y:number})=>this.gridSelectCallback(grid)} />
-            )
+            case 'region-select':
+                return (
+                <div>
+                  <SelectRegion selectedSubregion={this.state.selectedRegion} selectedCountry={this.state.selectedCountry} selectRegionCallback={(x:string)=>this.regionSelectCallback(x)} ></SelectRegion>
+                </div>
+                );
+            case 'trait-select':
+              let country:CountryType = consts.COUNTRIES.find(country => country.name === this.state.selectedCountry) as CountryType;
+              let selectedRegion:SubregionType = DataStructures.GetSubregionByName(country, this.state.selectedRegion);
+              let possibleTraits:Trait[] = DataStructures.GetTraitsFromNames(selectedRegion.traits);
+              let selectedTraits:Trait[] = this.state.selectedTraits.map((x)=> possibleTraits.find(y=>y.name === x) as Trait);
+              return (
+                <SelectTraits selectedTraits={selectedTraits} possibleTraits={possibleTraits} countryName={country.name} selectTraitCallback={(x:string)=>this.traitSelectCallback(x)} baseMultiplier={selectedRegion} />
+              );
+            case 'size-select':{
+              return(
+                <SelectSize possibleGridSizes={consts.GRID_SIZES} selectedGridSize={this.state.selectedGridSize} gridSizeSelectCallback={(grid:{x:number, y:number})=>this.gridSelectCallback(grid)} />
+              )
+            }
+            case 'edit':
+              return <EditProperty data={this.data.playerData} blockUpdatedCallback={this.blockUpdateCallback.bind(this)}/>;
+            default:
+              return null;
           }
-          case 'edit':
-            return <EditProperty data={this.data.playerData} blockUpdatedCallback={this.blockUpdateCallback.bind(this)}/>;
-          default:
-            return null;
-        }
-      })()}
-      <hr/>
-      <div className="row">
-        <div className="col"><button>Back</button></div>
-        <div className="col">
-          {
-            this.state.stage === "edit" ? <button onClick={()=>this.data.SerializeToJSONAnDownload()}>Download JSON</button> : <button onClick={()=>this.nextClickCallback()}>Next</button>
-          }
+        })()}
+        
         </div>
-      </div>
+        <div className={`fixed-bottom container-fluid footer ${this.state.stage === 'landing'? 'hidden' : ''}`}>
+          <div className="row">
+            {
+              //<div className="col"><button>Back</button></div>
+            }
+            <div className="col">
+              {
+                this.state.stage === "edit" ? 
+                <button className="btn btn-outline-dark" onClick={()=>this.data.SerializeToJSONAnDownload()}>Download JSON</button> : 
+                <button className="btn btn-outline-dark" disabled={!this.canGoNext()} onClick={()=>this.nextClickCallback()}><i className="fas fa-arrow-right"></i></button>
+              }
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -170,17 +217,12 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
   static calculateData(props:{data:PlayerData}){
 
     let finalMultipliers = {
-      dangerLevel: 0,
-      buildCost: 0,
-      landCost: 0,
-      tpValue: 0
+      dangerLevel: 1,
+      buildCost: 1,
+      landCost: 1,
+      tpValue: 1
     };
 
-    if(props.data.countryName !== "" && props.data.regionName !== ""){
-      let country = DataStructures.GetCountryDataByName(props.data.countryName);
-      let baseRegionValues = DataStructures.GetSubregionByName(country, props.data.regionName);
-      finalMultipliers = {...baseRegionValues};
-    }
     
     DataStructures.GetTraitsFromNames(props.data.regionTraitsSelected).map((trait)=>{
       finalMultipliers.dangerLevel = DataStructures.ResolveValueModifier(finalMultipliers.dangerLevel, trait.dangerLevel);
@@ -188,6 +230,12 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
       finalMultipliers.landCost = DataStructures.ResolveValueModifier(finalMultipliers.landCost, trait.landCost);
       finalMultipliers.tpValue = DataStructures.ResolveValueModifier(finalMultipliers.tpValue, trait.tpValue);
     });
+
+    if(props.data.countryName !== "" && props.data.regionName !== ""){
+      let country = DataStructures.GetCountryDataByName(props.data.countryName);
+      let baseRegionValues = DataStructures.GetSubregionByName(country, props.data.regionName);
+      finalMultipliers = {...baseRegionValues};
+    }
 
     let landCost:number = 0;
     if(props.data.mapMatrix.length > 0) landCost = props.data.mapMatrix.flat().length*consts.TILES.BASE_COSTS.LAND_COST*finalMultipliers.landCost;
@@ -222,29 +270,31 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
 
   render(){
     return(
-      <div className="row">
-        <div className="col-2">
-              <div>
-                  <b>Total:</b> Land Cost - {this.state.calculatedLandCost} gp <br/>
-                  Build Cost - {this.state.calculatedGoldCost} gp <br/>
-                  TP Value -  {this.state.calculatedTpCost} tp <br/>
-              </div>
+      <div className="header row">
+        <div className="col-3">
+          <h5>Total Cost Information</h5>
+          <div>
+              Land Cost - {this.state.calculatedLandCost} gp <br/>
+              Build Cost - {this.state.calculatedGoldCost} gp <br/>
+              TP Value -  {this.state.calculatedTpCost} tp <br/>
+          </div>
         </div>
         <div className="col">
           <h3>
-            {this.props.data.countryName || ""} - {this.props.data.regionName || ""}
+            {this.props.data.countryName || ""} {this.props.data.regionName ? " - "+this.props.data.regionName : ""}
           </h3>
           <h4>
             {this.props.data.regionTraitsSelected.join(", ")}
           </h4>
         </div>
-        <div className="col-2">
-              <div>
-                  <b>Total:</b> Danger Level - {this.state.multipliers.dangerLevel} <br/>
-                  Land Cost - {this.state.multipliers.landCost*100}% <br/>
-                  Build Cost -  {this.state.multipliers.buildCost*100}% <br/>
-                  TP Value -  {this.state.multipliers.tpValue*100}% <br/>
-              </div>
+        <div className="col-3">
+          <h5>Current Multipliers</h5>
+          <div>
+              Danger Level - {this.state.multipliers.dangerLevel} <br/>
+              Land Cost - {this.state.multipliers.landCost*100}% <br/>
+              Build Cost -  {this.state.multipliers.buildCost*100}% <br/>
+              TP Value -  {this.state.multipliers.tpValue*100}% <br/>
+          </div>
         </div>
       </div>
     )
@@ -286,7 +336,7 @@ class FileInput extends Component<{UploadedJson:Function}> {
               this.fileReader.readAsText(file[0]);
           }}
          >
-           Drop files here or click to upload
+           <button className="drag-file-container btn btn-outline-secondary btn-lg btn-block">Click or Drag N' Drop To Upload</button>
          </Files>
        </div>
     );

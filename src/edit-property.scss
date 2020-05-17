@@ -18,14 +18,16 @@ table{
     }
 }
 ul {
+    padding-left: 0px;
     li {
         list-style: none;
+        padding-left: none;
         cursor: pointer;
         &.active{
-            color:#f44336;
+            color:#9575cd;
         }
         &:hover{
-            color:#ef9a9a;
+            color:#d1c4e9;
         }
     }
     .color-block{
@@ -33,7 +35,9 @@ ul {
         float: right;
         height: 20px;
         display: block;
-        margin-top: 2px;
         margin-bottom: 2px;
+        position: absolute;
+        right: 0;
+        margin-top: -20px;
     }
 }

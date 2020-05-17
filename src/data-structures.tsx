@@ -122,7 +122,7 @@ export class DataSerializer {
         
     }
 
-    CreateEmptyTileMatrix(x:number, y:number){
+    CreateEmptyTileMatrix(y:number, x:number){
         let floor:TileType[][][] = [];
         for(let i=0; i < x; i++){
             floor[i]=[];

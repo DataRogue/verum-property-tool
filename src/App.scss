@@ -4,6 +4,7 @@
   text-align: center;
   margin-left: 20px;
   margin-right: 20px;
+  
 }
 
 .App-logo {
@@ -43,7 +44,7 @@
 
 .map-container{
   width: 100%;
-  height: 720px;
+  height: 640px;
   position: relative;
   svg{
     top:0;
@@ -53,7 +54,35 @@
     position: absolute;
     display: inline-block;
     &.map-highlight{
-      fill:#ef9a9a;
+      fill:#b39ddb;
     }
   }
+}
+
+.new-property-button, .drag-file-container{
+  height: 100px;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.footer{
+  height: 60px;
+  background-color: #ede7f6;
+  .btn{
+    margin-top: 12px;
+    width: 160px;
+  }
+}
+
+.title {
+  background-color: #ede7f6;
+  margin-bottom: 2px;
+}
+
+.main-content{
+  background-color: white;
+  margin-bottom: 60px;
+  margin-top: 60px;
 }

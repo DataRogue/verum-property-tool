@@ -113,10 +113,11 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
         //let calculatedGoldCost: number = flattenedBlocks.map(block=>block.tile.baseGpCost).reduce((accumulator, currentValue) => accumulator + currentValue);
 
         return (
-            <div className="row">
-                <div className="col-2">
-                    <h2>Blocks:</h2>
-                    <h3>Indoor:</h3>
+            <div className="row edit-view">
+                <div className="col-3">
+                    <h2>Blocks</h2>
+                    <hr/>
+                    <h3>Indoor</h3>
                         <ul>
                         {
                             consts.TILES.INDOOR.map((tile, i) => this.createTileTypeLegendsView(tile, i))
@@ -124,28 +125,31 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
                         </ul>
                     <br/>
 
-                    <h3>Outdoor:</h3>
+                    <h3>Outdoor</h3>
+                    <hr/>
                     <div>Field <span className="tile tile-field"></span></div>
                     <div>Decorated <span className="tile tile-decorated"></span></div>
                     <div>Well Decorated <span className="tile tile-well-decorated"></span></div>
                     <div>Very Decorated <span className="tile tile-very-decorated"></span></div>
-
-                    <h3>Special:</h3>
+                    <br/>
+                    
+                    <h3>Special</h3>
+                    <hr/>
                     <div>Reinforced Wooden Wall <span className="tile tile-wooden-wall"></span></div>
                     <div>Reinforced Stone Wall <span className="tile tile-stone-wall"></span></div>
                     <div>Escape Tunnel <span className="tile tile-escape-tunnel"></span></div>
                 </div>
-                <div className="col-7">
+                <div className="col">
                     <table ref={this.table} className="block-matrix-table">
                         <tbody>
                         {
-                            this.state.blockMatrix.map((yRow, i) =>(
+                            this.state.blockMatrix.map((xRow, i) =>(
                                 <tr key={i}>
                                 {
-                                    yRow.map((block, j) => (
+                                    xRow.map((block, j) => (
                                         <BlockView key={j} blockData={block[this.state.currentLevel]} coords={{x:i,y:j}}
                                          clickCallback={this.updateTileAtCoords.bind(this)}
-                                         height={(this.table.current?.clientWidth || 0)/this.state.blockMatrix.length}
+                                         height={(this.table.current?.clientWidth || 0)/xRow.length}
                                          />
                                     ))
                                 }
@@ -156,12 +160,13 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
                     </table>
                 </div>
                 <div className="col-3">
-                    <h4>Tile Qualities</h4>
+                    <br/>
+                    <h3>Tile Qualities</h3>
                      <ul>
                          {
                              DataStructures.GetQualitiesFromNames(this.state.selectedTileType.possibleQualities).map((quality, i)=>(
                                 <li onClick={()=>this.QualitySelected(quality.name)} key={i} className={quality.name === this.state.selectedQuality ? 'active' : ''} >
-                                    {quality.name}
+                                    {quality.name} <i className={`fas fa-${quality.faIcon || ""}`}></i>
                                 </li>  
                              ))
                          }
