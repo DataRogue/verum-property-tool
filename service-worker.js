@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/verum-property-tool/precache-manifest.44ec18470066b012797f78903998b736.js"
+  "/verum-property-tool/precache-manifest.82fb028faad191bd796537b7470141fe.js"
 );
 
 self.addEventListener('message', (event) => {
