@@ -13,7 +13,8 @@ export type AppState = {
   selectedRegion:string,
   selectedTraits:string[]
   selectedGridSize:{x:number, y:number},
-  tileMatrix:TileType[][][]
+  tileMatrix:TileType[][][],
+  hideSideBars:boolean
 }
 
 
@@ -28,9 +29,11 @@ class App extends Component<{}, AppState> {
       selectedRegion: "",
       selectedTraits:[],
       selectedGridSize: {x:0, y:0},
-      tileMatrix:[]
+      tileMatrix:[],
+      hideSideBars:false
     }
     this.data = new DataSerializer();
+    
   }
 
 
@@ -109,7 +112,7 @@ class App extends Component<{}, AppState> {
         </div>
         <div className="container-fluid main-content">
           {
-            this.state.stage !== "landing" ? <Header data={this.data.playerData}/> : null
+            this.state.stage !== "landing" ? <Header hideSideBars={this.state.hideSideBars} data={this.data.playerData}/> : null
           }
           {(() => {
           switch (this.state.stage) {
@@ -181,7 +184,7 @@ class App extends Component<{}, AppState> {
               )
             }
             case 'edit':
-              return <EditProperty data={this.data.playerData} blockUpdatedCallback={this.blockUpdateCallback.bind(this)}/>;
+              return <EditProperty data={this.data.playerData} hideSideBars={this.state.hideSideBars} blockUpdatedCallback={this.blockUpdateCallback.bind(this)}/>;
             default:
               return null;
           }
@@ -196,7 +199,9 @@ class App extends Component<{}, AppState> {
             <div className="col">
               {
                 this.state.stage === "edit" ? 
-                <button className="btn btn-outline-dark" onClick={()=>this.data.SerializeToJSONAnDownload()}>Download JSON</button> : 
+                <div>
+                  <button className="btn btn-outline-dark" onClick={()=>this.setState({hideSideBars:!this.state.hideSideBars})}>{this.state.hideSideBars ? "Expand" : "Shrink"} Sidebars</button> <button className="btn btn-outline-dark" onClick={()=>this.data.SerializeToJSONAnDownload()}>Download JSON</button>
+                </div> : 
                 <button className="btn btn-outline-dark" disabled={!this.canGoNext()} onClick={()=>this.nextClickCallback()}><i className="fas fa-arrow-right"></i></button>
               }
             </div>
@@ -220,7 +225,7 @@ type HeaderState = {
   }
 }
 
-class Header extends Component<{data:PlayerData}, HeaderState> {
+class Header extends Component<{data:PlayerData, hideSideBars?:boolean}, HeaderState> {
   constructor(props:any){
     super(props);
     this.state = Header.calculateData({data:this.props.data});
@@ -291,7 +296,7 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
   render(){
     return(
       <div className="header row">
-        <div className="col-3">
+        <div className={this.props.hideSideBars ? "col-2" : "col-3"}>
           <h5>Total Cost Information</h5>
           <div>
               Land Cost - {Math.round(this.state.calculatedLandCost)} gp <br/>
@@ -307,7 +312,7 @@ class Header extends Component<{data:PlayerData}, HeaderState> {
             {this.props.data.regionTraitsSelected.join(", ")}
           </h4>
         </div>
-        <div className="col-3">
+        <div className={this.props.hideSideBars ? "col-2" : "col-3"}>
           <h5>Current Multipliers</h5>
           <div>
               Danger Level - {Math.round(this.state.multipliers.dangerLevel)} <br/>

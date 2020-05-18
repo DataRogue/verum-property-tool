@@ -61,7 +61,7 @@ export function ConvertBlockMatrixToTileMatrix(mapMatrix:Block[][][]):TileType[]
     return mapMatrix.map(x=>x.map(y=>y.map(z=>z.ConvertToTileType())));
 }
 
-export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallback:Function}, PropertyState> {
+export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallback:Function, hideSideBars?:boolean}, PropertyState> {
     constructor(props: any) {
       super(props)
       this.state = {
@@ -69,11 +69,12 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
           selectedTileType: consts.TILES.INDOOR[0],
           currentLevel: 0,
           currentlySelectedTraits: [],
-          selectedQuality: ""
+          selectedQuality: "",
       }
+      window.addEventListener('resize', ()=>this.forceUpdate());
     }
 
-    private table = createRef<HTMLTableElement>();
+    
 
     componentDidMount(){
         this.forceUpdate();
@@ -109,13 +110,13 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
     }
 
     render(){
-        let flattenedBlocks: Block[] = this.state.blockMatrix.flat().flat();
+        ///let flattenedBlocks: Block[] = this.state.blockMatrix.flat().flat();
         //let calculatedTpCost: number = flattenedBlocks.map(block=>block.tile.baseTpCost).reduce((accumulator, currentValue) => accumulator + currentValue);
         //let calculatedGoldCost: number = flattenedBlocks.map(block=>block.tile.baseGpCost).reduce((accumulator, currentValue) => accumulator + currentValue);
 
         return (
             <div className="row edit-view">
-                <div className="col-3">
+                <div className={this.props.hideSideBars ? "col-2" : "col-3"}>
                     <h2>Blocks</h2>
                     <hr/>
                     <h3>Indoor</h3>
@@ -143,8 +144,8 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
                         }
                     </ul>
                 </div>
-                <div className="col">
-                    <table ref={this.table} className="block-matrix-table">
+                <div className="col center-elemental">
+                    <table className="block-matrix-table">
                         <tbody>
                         {
                             this.state.blockMatrix.map((xRow, i) =>(
@@ -153,7 +154,6 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
                                     xRow.map((block, j) => (
                                         <BlockView key={j} blockData={block[this.state.currentLevel]} coords={{x:i,y:j}}
                                          clickCallback={this.updateTileAtCoords.bind(this)}
-                                         height={(this.table.current?.clientWidth || 0)/xRow.length}
                                          />
                                     ))
                                 }
@@ -163,7 +163,7 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
                         </tbody>
                     </table>
                 </div>
-                <div className="col-3">
+                <div className={this.props.hideSideBars ? "col-2" : "col-3"}>
                     <br/>
                     <h3>Tile Qualities</h3>
                      <ul>
@@ -181,17 +181,21 @@ export class EditProperty extends Component<{data:PlayerData, blockUpdatedCallba
     }
   }
 
-  class BlockView extends Component<{blockData:Block, clickCallback:Function, coords:{x:number, y:number}, height:number}> {
+  class BlockView extends Component<{blockData:Block, clickCallback:Function, coords:{x:number, y:number}}> {
+    private td = createRef<HTMLTableDataCellElement>();
     constructor(props: any) {
       super(props)
+      
     }
 
     render(){
         return (
-            <td onClick={()=>this.props.clickCallback(this.props.coords)}
-                style={{backgroundColor:this.props.blockData.tile.color, height:this.props.height}}
+            <td ref={this.td}
+                onClick={()=>this.props.clickCallback(this.props.coords)}
+                style={{backgroundColor:this.props.blockData.tile.color, height:this.td.current?.clientWidth, minWidth: 26, padding:0}}
             >
-                <i className={`fas fa-${this.props.blockData.trait?.faIcon || ""}`}></i>
+                    <i className={`fas fa-${this.props.blockData.trait?.faIcon || ""}`}></i>
+                
                 </td>
         )
     }

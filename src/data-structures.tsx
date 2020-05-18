@@ -82,7 +82,8 @@ export class DataSerializer {
             selectedRegion: this.playerData.regionName,
             selectedTraits: this.playerData.regionTraitsSelected,
             selectedGridSize: {x:this.playerData.mapMatrix.length, y:this.playerData.mapMatrix[0].length},
-            tileMatrix: this.playerData.mapMatrix
+            tileMatrix: this.playerData.mapMatrix,
+            hideSideBars: false
         }
     }
 
